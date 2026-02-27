@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="images/ChatGPT Image 19. feb. 2026, 10.43.53.png">
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="home.html">Forside</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section style="max-width:600px; margin:0 auto;">
+
+    <h2>Login</h2>
+
+    <div class="contact-form">
+      <label>Brugernavn</label>
+      <input type="text" id="username" placeholder="Indtast brugernavn">
+
+      <label>Adgangskode</label>
+      <input type="password" id="password" placeholder="Indtast adgangskode">
+
+      <button class="btn btn-primary" onclick="login()">Login</button>
+      <button class="btn" onclick="register()">Opret konto</button>
+    </div>
+
+  </section>
+</main>
+
+<script>
+function register() {
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+
+  if (user === "" || pass === "") {
+    alert("Udfyld alle felter");
+    return;
+  }
+
+  localStorage.setItem("username", user);
+  localStorage.setItem("password", pass);
+  alert("Konto oprettet");
+}
+
+function login() {
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+
+  const savedUser = localStorage.getItem("username");
+  const savedPass = localStorage.getItem("password");
+
+  if (user === savedUser && pass === savedPass) {
+    localStorage.setItem("loggedIn", "true");
+    window.location.href = "home.html";
+  } else {
+    alert("Forkert login");
+  }
+}
+</script>
+
+</body>
+</html>

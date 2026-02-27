@@ -1,307 +1,178 @@
-<!DOCTYPE html>
-<html lang="da">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReFoam - Cirkulær Fremtid</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background-color: #f8f9fa;
-        }
-
-        header {
-            background: linear-gradient(90deg, #000000 20%, #1e452e 90%);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #1e452e;
-            font-size: 1.5rem;
-        }
-
-        .brand-name {
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-            font-size: 1.1rem;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-
-        .hero {
-            background-color: #f8f9fa;
-            text-align: center;
-            width: 100%;
-            padding: 0;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            opacity: 0.85;
-            filter: brightness(0.9);
-        }
-
-        .hero-text {
-            font-size: 0.9rem;
-            max-width: 700px;
-            margin: 1.5rem auto;
-            padding: 0 2rem 2rem;
-            color: #5a6c7d;
-            font-weight: 300;
-            letter-spacing: 0.3px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: -2rem 2rem;
-        }
-
-        .section {
-            margin-bottom: 4rem;
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        .section h2 {
-            color: #1e452e;
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid #000000;
-            padding-bottom: 0.5rem;
-        }
-
-        .section h3 {
-            color: #1e452e;
-            font-size: 1.6rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .section p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            text-align: justify;
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(150px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .process-card {
-            background: linear-gradient(135deg, #e8f8f5 0%, #e8f8f5 100%);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s;
-            border-left: 4px solid #1e452e;
-        }
-
-        .process-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .process-card h4 {
-            color: #1e452e;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .process-card p {
-            font-size: 1rem;
-            text-align: left;
-            color: #34495e;
-        }
-
-        .benefits-list {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .benefit-item {
-            background: #e8f8f5;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #1e452e;
-        }
-
-        .benefit-item strong {
-            color: #1e452e;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        footer {
-            background: #1e452e;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero-text {
-                font-size: 0.85rem;
-            }
-            
-            .nav-links {
-                gap: 1rem;
-            }
-            
-            .brand-name {
-                font-size: 1.4rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo-section">
-                <div class="logo">RF</div>
-                <span class="brand-name">ReFoam</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#hjem">Hjem</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="hero" id="hjem">
-        <img src="Images/Ad.png" alt="ReFoam" class="hero-image">
-        <p class="hero-text">Vi omdanner gamle madrasser til innovative akustikpaneler og skaber en bæredygtig fremtid gennem genanvendelse</p>
-    </section>
-
-    <div class="container">
-        <section class="section">
-            <h2>Vores Vision</h2>
-            <p>ReFoam er et innovativt projekt der fokuserer på cirkulær økonomi ved at transformere kasserede madrasser til højkvalitets akustikpaneler. Vi tror på, at affald ikke er slutningen, men starten på noget nyt og værdifuldt. Hvert år bliver tusindvis af madrasser smidt væg, selvom de indeholder materialer der kan genanvendes. Vi har fundet en løsning der både gavner miljøet og skaber et produkt med reel værdi i moderne arkitektur og indretning.</p>
-        </section>
-
-        <section class="section" id="om-os">
-            <h2>Hvad Gør Vi?</h2>
-            <h3>Fra Madras til Akustikpanel</h3>
-            <p>Vi specialiserer os i at indsamle og forarbejde brugte madrasser, hvor vi omhyggeligt udvinder skummet og andre anvendelige materialer. Gennem vores innovative proces bliver dette materiale omdannet til effektive akustikpaneler der kan bruges i kontorer, skoler, hjemmet og andre rum hvor lydabsorption er vigtig.</p>
-            
-            <h3>Vores Proces</h3>
-            <div class="process-grid">
-                <div class="process-card">
-                    <h4>1. Indsamling</h4>
-                    <p>Vi indsamler kasserede madrasser fra private og erhverv</p>
-                </div>
-                <div class="process-card">
-                    <h4>2. Sortering</h4>
-                    <p>Materialer sorteres og udvælges til videre forarbejdning</p>
-                </div>
-                <div class="process-card">
-                    <h4>3. Forarbejdning</h4>
-                    <p>Skummet behandles og klargøres til akustikpaneler</p>
-                </div>
-                <div class="process-card">
-                    <h4>4. Produktion</h4>
-                    <p>Færdige akustikpaneler fremstilles i forskellige designs</p>
-                </div>
-            </div>
-
-            <h3>Hvorfor Akustikpaneler?</h3>
-            <p>Akustikpaneler er efterspurgte i en lang række miljøer for at forbedre lydforholdene. Ved at bruge genbrugt materiale fra madrasser, skaber vi et produkt der er både miljøvenligt og funktionelt. Skummet fra madrasser har fremragende lydabsorberende egenskaber, hvilket gør det ideelt til formålet.</p>
-        </section>
-
-        <section class="section">
-            <h2>Bæredygtighed & Cirkulær Økonomi</h2>
-            <p>ReFoam er forankret i principperne om cirkulær økonomi, hvor produkter og materialer holdes i anvendelse så længe som muligt. I stedet for at lade madrasser ende på lossepladsen, giver vi dem nyt liv og reducerer dermed både affald og behovet for nye råmaterialer.</p>
-            
-            <h3>Vores Miljømæssige Fordele</h3>
-            <div class="benefits-list">
-                <div class="benefit-item">
-                    <strong>Reduceret Affald</strong>
-                    <p>Tusindvis af madrasser reddes fra lossepladsen hvert år</p>
-                </div>
-                <div class="benefit-item">
-                    <strong>Mindre CO2-udledning</strong>
-                    <p>Genanvendelse kræver mindre energi end nyproduktion</p>
-                </div>
-                <div class="benefit-item">
-                    <strong>Ressourcebesparelse</strong>
-                    <p>Mindre behov for udvinding af nye råmaterialer</p>
-                </div>
-                <div class="benefit-item">
-                    <strong>Økonomisk Værdi</strong>
-                    <p>Skaber jobs og værdi i den cirkulære økonomi</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Vores Mission</h2>
-            <p>Vi arbejder for at skabe bevidsthed om mulighederne i genanvendelse og vise at affald kan være en ressource. Gennem ReFoam ønsker vi at inspirere andre til at tænke kreativt omkring bæredygtighed og bidrage til en grønnere fremtid.</p>
-            <p>Vores mål er at udvide projektet og gøre akustikpaneler fra genbrugte madrasser til et anerkendt og efterspurgt produkt, der både gavner miljøet og forbedrer lydforholdene i rum over hele landet.</p>
-        </section>
+    <!DOCTYPE html>
+    <html lang="en">
+    <link rel="stylesheet" href="style.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hjælp Til Skærmtid</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" href="images/ChatGPT Image 19. feb. 2026, 10.43.53.png">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#hjem">Forside</a></li>
+                    <li><a href="#support">Kontakt</a></li>
+                    <li><a href="#funktioner">Funktioner</a></li>
+                    <li><a href="#FAQ">FAQ</a></li>
+                    <li><a href="#download">Download</a></li>
+                </ul>
+                <ul>
+                    <li><a href="Login.html">Login</a></li>
+                    <li><a href="#" onclick="logout()">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+    </body>
+    
+        <main>
+    <section id="hjem" class="hero">
+    <div class="hero-left">
+        <h1>Vores Hjælp Til Skærmtid App</h1>
+        <p>Udforsk vores funktioner og lær hvordan du kan reducere din skærmtid.</p>
+        <a class="btn" href="#funktioner">Udforsk nu</a>
     </div>
 
-    <footer>
-        <p>&copy; 2026 ReFoam - Cirkulær Fremtid | Skoleprojekt om Bæredygtighed</p>
-    </footer>
-</body>
-</html>
+    <div class="hero-right">
+        <img src="images/hjaelp_til_skaermtid_logo_white_large.png" alt="Hjælp Til Skærmtid logo" class="hero-logo">
+    </div>
+
+<div id="popup" class="popup">
+<div class="popup-content">
+<h2>Vi bruger cookies</h2>
+<p>Acceptér cookies for at fortsætte.</p>
+<button class="btn btn-primary" id="acceptBtn">Godkend</button>
+</div>
+</div>
+
+    </section>
+
+            <section id="funktioner">
+                <h2>Vores Funktioner</h2>
+            <article>
+                <h3>Overblik over skærmtid</h3>
+                <p>Appen viser din daglige skærmtid i et enkelt og overskueligt design. Du kan følge dit forbrug time for time og se, hvordan du udvikler dig over tid. Visualisering med diagrammer gør det nemt at forstå dine vaner og tage kontrol.</p>
+            </article>
+
+            <article>
+                <h3>Point og belønninger</h3>
+                <p>Du optjener point, når du holder pauser fra skærmen. Pointene giver badges og små belønninger, som motiverer dig til at fortsætte. Systemet føles som et spil og gør det sjovere at skabe sunde digitale vaner.</p>
+            </article>
+
+            <article>
+                <h3>Fælles udfordringer</h3>
+                <p>Du kan deltage i udfordringer med venner eller klassekammerater, fx “Skærmfri Timer”. I kan sammenligne resultater og støtte hinanden. Det skaber fællesskab og gør det lettere at holde motivationen.</p>
+            </article>
+
+            </section>
+
+            <section id="download">
+                <h2>Udforsk Appen</h2>
+                <p>Udforsk vores app og kom i gang med at reducere din skærmtid. Appen er tilgængelig på både iOS og Android.</p>
+                <a class="btn" href="https://studio.code.org/projects/applab/08PgJdbLqOMmKOB5FwyGcvRfi_hJovvaIK10CRUiheo" target="_blank">Download til Android</a>
+                <a class="btn" href="https://studio.code.org/projects/applab/08PgJdbLqOMmKOB5FwyGcvRfi_hJovvaIK10CRUiheo" target="_blank">Download til iOS</a>
+            </section>
+
+            <section id="FAQ">
+                <h2>Ofte Stillede Spørgsmål</h2>
+                <article>
+                    <h3>Hvordan fungerer pointsystemet?</h3>
+                    <p>Du optjener point ved at holde pauser fra skærmen. Jo længere du holder pauser, desto flere point får du. Pointene kan bruges til at låse op for badges og belønninger i appen.</p>
+                </article>
+                <article>
+                    <h3>Kan jeg bruge appen uden internet?</h3>
+                    <p>Ja, appen fungerer også offline. Dine data synkroniseres, når du er online igen, så du kan følge dine fremskridt uanset hvor du er.</p>
+                </article>
+                <article>              <h3>Er appen gratis?</h3>
+                    <p>Appen er gratis at downloade og bruge. Vi tilbyder også en premium version med ekstra funktioner.</p>
+                </article>
+            </section>
+
+            <section id="support">
+                <h2>Kontakt</h2>
+                <p>Skriv til os, hvis du har spørgsmål eller brug for hjælp.</p>
+<form class="contact-form"
+action="mailto:Jonashavgaard@gmail.com"
+method="get"
+enctype="text/plain">
+<label for="name">Navn</label>
+<input id="name" name="name" type="text" placeholder="Dit navn" required>
+<label for="email">Email</label>
+<input id="email" name="email" type="email" placeholder="123@mail.dk" required>
+<label for="subject">Emne</label>
+<input id="subject" name="subject" type="text" placeholder="Hvad handler det om?" required>
+<label for="message">Besked</label>
+<textarea id="message" name="message" rows="6" placeholder="Skriv din besked..." required></textarea>
+<button class="btn btn-primary" type="submit">Send</button>
+</form>
+            </section>
+    </section>
+    </main>
+
+    <a href="#hjem" class="to-top" aria-label="Til toppen">↑</a>
+
+
+        <footer>
+            <p>&copy; 2026 All rights reserved.</p>
+        </footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "Login.html";
+    return;
+  }
+
+  window.logout = function() {
+    localStorage.removeItem("loggedIn");
+    window.location.href = "Login.html";
+  };
+
+});
+</script>
+
+<script>// JS
+function showPopup(message) {
+  document.getElementById("popup-text").innerText = message;
+  document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+// Brug fx her:
+function deleteUser() {
+  localStorage.removeItem("username");
+  localStorage.removeItem("password");
+  localStorage.removeItem("loggedIn");
+  showPopup("Konto slettet");
+}</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+const popup = document.getElementById("popup");
+const btn = document.getElementById("acceptBtn");
+
+function checkCookies(){
+    if(localStorage.getItem("cookieConsent") !== "accepted"){
+        popup.style.display = "flex";
+    }
+}
+
+btn.addEventListener("click", function(){
+    localStorage.setItem("cookieConsent","accepted");
+    popup.style.display = "none";
+});
+
+checkCookies();
+
+});
+</script>
+
+    </body>
+    </html>
